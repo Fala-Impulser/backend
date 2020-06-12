@@ -1,0 +1,13 @@
+{
+    "Servers": {
+        "1": {
+            "Name": "Fala Impulser DB Server",
+            "Group": "Impulso",
+            "Port": 5432,
+            "Username": "postgres",
+            "Host": "falaimpulser-db",
+            "SSLMode": "prefer",
+            "MaintenanceDB": "postgres"
+        }
+    }
+}
