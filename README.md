@@ -40,3 +40,14 @@ TODO: Descrição do projeto
   ```
   make logs
   ```
+
+### Banco de dados
+
+  No docker-compose deste projeto, existe uma instalação do pgadmin (web), para acessá-lo abra a url http://localhost:5400. Para abrir é necessário usar o email e senha informados no arquivo docker-compose.yml:
+  
+  * e-mail: *impulser@gmail.com*
+  * senha: *JGSaFb2YbmhsN4Yb*
+
+  Ao abrir, será necessário informar a senha do BD, do usuário postgres:
+
+  * senha: *S3hYyShtrrP8NApU*
