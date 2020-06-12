@@ -9,7 +9,7 @@ services:
     depends_on:
       - falaimpulser-db
     ports:
-      - 4000:4000
+      - ${NODE_PORT}:${NODE_PORT}
     volumes:  
       - .:/usr/src/app
     working_dir: /usr/src/app
@@ -26,8 +26,8 @@ services:
     image: postgres
     container_name: falaimpulser-db
     environment:
-      POSTGRES_PASSWORD: "S3hYyShtrrP8NApU"
-      POSTGRES_DB: "falaimpulser"
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_DB: ${DB_NAME}
     ports:
       - "5432:5432"
     volumes:
@@ -39,8 +39,8 @@ services:
     image: dpage/pgadmin4
     container_name: pgadmin
     environment:
-      PGADMIN_DEFAULT_EMAIL: "impulser@gmail.com"
-      PGADMIN_DEFAULT_PASSWORD: "JGSaFb2YbmhsN4Yb"
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
     ports:
       - "5400:80"
     volumes:

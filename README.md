@@ -8,7 +8,19 @@ TODO: Descrição do projeto
 
   * Docker última versão (atualmente 2.3.0.3 na versão community) - https://www.docker.com/products/docker-desktop
 
-  Uma vez instalado, para rodar o ambiente de desenvolvimento, basta executar o comando abaixo:
+  Uma vez instalado, faça uma cópia do arquivo *.env.sample*, criando um arquivo *.env* preenchendo suas variáveis de ambiente.
+
+  * NODE_ENV: Ambiente do projeto. Default: *development*
+  * NODE_PORT: Porta onde irá rodar o node. Default: *4000*
+  * DB_HOST: Host do banco de dados. Default: *localhost*
+  * DB_PORT: Porta do banco de dados. Default: *5432*
+  * DB_NAME: Nome do banco de dados. Default: *falaimpulser*
+  * DB_USER: Usuário do banco de dados. Default: *postgres*
+  * DB_PASS: Senha do banco de dados. *Por segurança, não tem senha default.
+  * PGADMIN_DEFAULT_EMAIL: Email para se acessar o pgadmin. *Qualquer email válido.*
+  * PGADMIN_DEFAULT_PASSWORD: Senha para se acessar o pgadmin. *Qualquer senha diferente de vazio.*
+
+  Feito isto, para rodar o ambiente de desenvolvimento, basta executar o comando abaixo:
 
   ```
   docker-compose up -d --force-recreate
