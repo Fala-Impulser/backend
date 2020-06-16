@@ -2,6 +2,8 @@ const { authSecret } = require("../.keySecret");
 const jwt = require("jwt-simple");
 const bcrypt = require("bcrypt");
 
+const logger = require('./../shared/logger.service');
+
 module.exports = (app) => {
   const login = async (req, res) => {
     if (!req.body.email || !req.body.password) {
@@ -39,7 +41,7 @@ module.exports = (app) => {
         }
       }
     } catch (err) {
-      console.log(err);
+      logger.error(err);
     }
     res.send(false);
   };
