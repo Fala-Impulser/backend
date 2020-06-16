@@ -5,12 +5,12 @@ services:
     container_name: falaimpulser-backend
     restart: always
     env_file:
-     - .env
+      - .env
     depends_on:
       - falaimpulser-db
     ports:
       - ${NODE_PORT}:${NODE_PORT}
-    volumes:  
+    volumes:
       - .:/usr/src/app
     working_dir: /usr/src/app
     command: npm start
@@ -31,7 +31,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./data/falaimpulser:/var/lib/postgresql/data 
+      - ./data/falaimpulser:/var/lib/postgresql/data
     networks:
       - falaimpulser-network
 
@@ -51,6 +51,6 @@ services:
     networks:
       - falaimpulser-network
 
-networks: 
+networks:
   falaimpulser-network:
     driver: bridge

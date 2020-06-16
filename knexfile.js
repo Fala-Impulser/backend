@@ -5,8 +5,8 @@ module.exports = {
   connection: {
     host: "localhost",
     database: "falaimpulser",
-    user: "pguser",
-    password: "pgpassword",
+    user: "postgres",
+    password: "",
   },
   pool: {
     min: 2,
