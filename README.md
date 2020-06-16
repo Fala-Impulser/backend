@@ -19,6 +19,9 @@ TODO: Descrição do projeto
   * DB_PASS: Senha do banco de dados. *Por segurança, não tem senha default.
   * PGADMIN_DEFAULT_EMAIL: Email para se acessar o pgadmin. *Qualquer email válido.*
   * PGADMIN_DEFAULT_PASSWORD: Senha para se acessar o pgadmin. *Qualquer senha diferente de vazio.*
+  * LOG_LEVEL: Level para os logs. Default: *INFO*
+  * LOG_DAYS: Dias em que será mantido os logs. Default: *15*
+  * LOG_PATH: Caminho para geração de logs. Default: *logs/*
 
   Feito isto, para rodar o ambiente de desenvolvimento, basta executar o comando abaixo:
 

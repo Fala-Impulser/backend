@@ -1,8 +1,14 @@
 const bcrypt = require("bcrypt");
-const passport = require("passport");
+
+const logger = require('./../shared/logger.service');
 
 module.exports = (app) => {
   const { existsOrError, notExistsOrError, equalsOrError } = app.api.validation;
+
+  const onError = (res, error, status = 500) => {
+    logger.error(error);
+    res.status(status).send(error);
+  };
 
   const encryptPassword = (password) => {
     const salt = bcrypt.genSaltSync(10);
@@ -32,7 +38,7 @@ module.exports = (app) => {
         notExistsOrError(userFromDB, "Usuário já cadastrado");
       }
     } catch (msg) {
-      return res.status(400).send(msg);
+      onError(res, msg, 400);
     }
 
     user.password = encryptPassword(user.password);
@@ -44,13 +50,13 @@ module.exports = (app) => {
         .update(user)
         .where({ id: user.id })
         .then((_) => res.status(204).send("Usuário atualizado com sucesso"))
-        .catch(res.status(500).send(err));
+        .catch((err) => onError(res, err));
     } else {
       app
         .db("users")
         .insert(user)
         .then((_) => res.status(204).send("Usuário adicionado com sucesso"))
-        .catch((err) => res.status(500).send(err));
+        .catch((err) => onError(res, err));
     }
   };
 
@@ -63,13 +69,13 @@ module.exports = (app) => {
         .select("id", "name", "email", "phone", "city")
         .where({ id: req.params.id })
         .then((user) => res.json(user))
-        .catch((err) => res.status(500).send(err));
+        .catch((err) => onError(res, err));
     } else {
       app
         .db("users")
         .select("id", "name", "email", "phone", "city")
         .then((users) => res.json(users))
-        .catch((err) => res.status(500).send(err));
+        .catch((err) => onError(res, err));
     }
   };
 
@@ -83,12 +89,12 @@ module.exports = (app) => {
       try {
         existsOrError(rowsDeleted, "Usuário não foi encontrado");
       } catch (msg) {
-        return res.status(400).send(msg);
+        return onError(res, msg, 400);
       }
 
       res.status(204).send("Deletado com sucesso");
     } catch (msg) {
-      res.status(500).send(msg);
+      return onError(res, msg);
     }
   };
 
