@@ -3,10 +3,10 @@
 module.exports = {
   client: "postgresql",
   connection: {
-    host: "banco-de-dados",
-    database: "nome-do-banco",
-    user: "usuario-do-banco",
-    password: "senha-do-banco",
+    host: "localhost",
+    database: "falaimpulser",
+    user: "postgres",
+    password: "",
   },
   pool: {
     min: 2,
