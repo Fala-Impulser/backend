@@ -14,7 +14,7 @@ module.exports = (app) => {
     if (req.params.id) user.id = req.params.id;
 
     try {
-      existsOrError(user.name, "Nome não informado");
+      existsOrError(user.nome, "Nome não informado");
       existsOrError(user.email, "E-mail não informado");
       existsOrError(user.password, "Senha não informada");
       existsOrError(user.confirmPassword, "Confirmação de senha inválida");
@@ -56,7 +56,7 @@ module.exports = (app) => {
     if (req.params.id) user.id = req.params.id;
 
     try {
-      existsOrError(user.name, "Nome não informado");
+      existsOrError(user.nome, "Nome não informado");
       existsOrError(user.email, "E-mail não informado");
 
       const userFromDB = await app
@@ -85,7 +85,7 @@ module.exports = (app) => {
   const get = (req, res) => {
     app
       .db("usuarios")
-      .select("id", "name", "email", "admin", "profissao")
+      .select("id", "nome", "email", "admin", "profissao")
       .then((usuarios) => res.json(usuarios))
       .catch((err) => res.status(500).send(err));
   };
@@ -95,7 +95,7 @@ module.exports = (app) => {
       .db("usuarios")
       .select(
         "id",
-        "name",
+        "nome",
         "email",
         "admin",
         "telefone",
