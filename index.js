@@ -7,11 +7,11 @@ app.db = db;
 consign()
   .include("./config/passport.js")
   .then("./config/middlewares.js")
-  .then("./api/validation.js")
+  .then("./api/validacoes.js")
   .then("./api")
-  .then("./config/routes.js")
+  .then("./config/rotas.js")
   .into(app);
 
-app.listen(4000, () => {
+app.listen(4001, () => {
   console.log("Backend executando...");
 });
