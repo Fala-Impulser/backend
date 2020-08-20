@@ -1,8 +1,0 @@
-/node_modules
-yarn.lock
-.env
-data
-pgadmin
-package-lock.json
-/.idea/
-/logs/
